@@ -1,0 +1,29 @@
+footer {
+  margin-top: 4rem;
+
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+
+  padding: 1.5rem 3rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  color: var(--text-secondary);
+}
+
+footer .nav-list {
+  gap: 1.5rem;
+}
+
+footer li {
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+footer li:hover {
+  color: var(--primary);
+}

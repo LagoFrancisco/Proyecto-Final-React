@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "MULTIMETRO DIGITAL",
+    "description": "El Teste Multímetro digital de mano ofrece una tensión máxima tanto de corriente alterna como en corrriente continua de 600V",
+    "price": 45000,
+    "image": "/img/electronica/Tester-Multimetro-Digital.jpeg",
+    "alt": "Imagen de Tester Multimetro Digital",
+    "category": "instrumentos de medición"
+  },
+  {
+    "id": 2,
+    "name": "PINZA AMPEROMETRICA",
+    "description": "Medición precisa hasta 200A CA/CC y 600V CA/CC, ideal para proyectos eléctricos.",
+    "price": 50000,
+    "image": "/img/electronica/Pinza-Amperométrica.jpeg",
+    "alt": "Imagen de Pinza Amperométrica",
+    "category": "instrumentos de medición"
+  },
+  {
+    "id": 3,
+    "name": "FUENTE DE VOLTAJE REGULADA",
+    "description": "Potencia máxima 150W. Modo de operación : CV (voltaje constante) / CC (corriente constante). Display: pantalla LED triple (voltaje, corriente, potemcia) de alta visibilidad.",
+    "price": 150000,
+    "image": "/img/electronica/Fuente-de-Voltaje-Regulada.jpeg",
+    "alt": "Imagen de Fuente de Voltaje Regulada",
+    "category": "fuentes"
+  },
+  {
+    "id": 4,
+    "name": "OSCILOSCOPIO DIGITAL",
+    "description": "Ancho de banda de 200 MHz para análisis de señales de alta frecuencia. Tasa de muestreo de 1 GSa/s para capturar señales precisas.",
+    "price": 360000,
+    "image": "/img/electronica/Osciloscopio-Digital.jpeg",
+    "alt": "Imagen de Osciloscopio Digital",
+    "category": "osciloscopios"
+  }
+]
