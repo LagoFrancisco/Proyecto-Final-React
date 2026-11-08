@@ -151,6 +151,7 @@
 
 .admin-product-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   background-color: #0f172a;
@@ -167,10 +168,12 @@
 
 .admin-product-thumbnail {
   width: 50px;
+  flex-wrap: wrap;
   height: 50px;
   object-fit: cover;
   border-radius: 4px;
   background-color: #1e293b;
+  padding-bottom: 3px;
 }
 
 .product-titles h4 {
