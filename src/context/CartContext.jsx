@@ -25,21 +25,26 @@ export const CartProvider = ({ children }) => {
   const navigate = useNavigate();
   const [cart, setCart] = useState([]);
 
-  //Averiguar si hay existencia en el carrito
-  const isInCart = (item) => {
-    const inCart = cart.some((element) => element.id === item.id);
-    return inCart;
-  };
-  //Agregar al carrito (no permite los duplicados de producto)
-  const addItem = (item) => {
-    if (isInCart(item)) {
-      alert("El producto ya existe en el carrito");
-      return;
+  // Función inteligente para agregar al carrito
+  const addItem = (product, quantity) => {
+    //Verificamos si existe AFUERA del setCart
+    const itemExists = cart.find((item) => item.id === product.id);
+
+    if (itemExists) {
+      // Si ya existe, actualizamos su cantidad
+      setCart((prevCart) =>
+        prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item,
+        ),
+      );
+      alert("El producto ya existe en el carrito, se sumo la cantidad 🛒");
+    } else {
+      // Si no existe, lo agregamos como nuevo elemento
+      setCart((prevCart) => [...prevCart, { ...product, quantity }]);
+      alert("Producto agregado al carrito con éxito 🎉");
     }
-    //Forma funcional "prev"
-    //setCert(prev => [...prev, item])
-    setCart([...cart, item]);
-    alert("Producto agregado al carrito 🎉");
   };
 
   //Eliminar del carrito
@@ -57,15 +62,17 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
-  //Total de items en carrito (para este caso sin quantity)
   //Si uso quantity tengo que usar el método reduce
   const getTotalItems = () => {
-    return cart.length;
+    return cart.reduce((acc, element) => acc + element.quantity, 0);
   };
 
-  //Total a pagar (si usé quantity esta parte la tengo que adaptar)
+  //Total a pagar (como usé quantity esta parte fue adaptada)
   const getCartTotal = () => {
-    return cart.reduce((acc, element) => acc + element.price, 0);
+    return cart.reduce(
+      (acc, element) => acc + element.price * element.quantity,
+      0,
+    );
   };
 
   //Checkout

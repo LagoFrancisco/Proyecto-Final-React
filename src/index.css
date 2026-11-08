@@ -111,3 +111,22 @@ a {
   cursor: not-allowed;
   filter: none;
 }
+
+.selector-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.btn-increment {
+  padding: 5px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-decrement {
+  padding: 5px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}

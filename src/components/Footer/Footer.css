@@ -19,6 +19,17 @@ footer .nav-list {
   gap: 1.5rem;
 }
 
+footer li img {
+  gap: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  width: 35px;
+}
+
 footer li {
   transition: 0.25s;
   cursor: pointer;
