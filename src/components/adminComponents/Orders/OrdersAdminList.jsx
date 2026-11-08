@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAllOrdersFromFirebase } from "../../../services/productsService";
+import {
+  getAllOrdersFromFirebase,
+  deleteOrderFromFirebase,
+} from "../../../services/productsService";
 import "./OrdersAdminList.css";
 
 export const OrdersAdminList = () => {
@@ -21,6 +24,23 @@ export const OrdersAdminList = () => {
     fetchOrders();
   }, []);
 
+  const handleDeleteClick = async (orderId) => {
+    const confirmar = window.confirm(
+      "¿Estás seguro de que deseas eliminar esta órden permanentemente?",
+    );
+    if (confirmar) {
+      try {
+        await deleteOrderFromFirebase(orderId);
+        setOrders((currentOrders) =>
+          currentOrders.filter((order) => order.id !== orderId),
+        );
+        alert("Órden eliminada correctamente.");
+      } catch (error) {
+        alert("Hubo un error al intentar eliminar la órden.");
+      }
+    }
+  };
+
   return (
     <div className="orders-admin">
       <header className="dashboard-header">
@@ -40,14 +60,22 @@ export const OrdersAdminList = () => {
             {orders.map((order) => (
               <div key={order.id} className="order-card">
                 <div className="order-header-info">
-                  <span className="order.id">🆔 ID: {order.id}</span>
-                  <span className="order-date">
-                    📆{" "}
-                    {order.date?.seconds
-                      ? new Date(order.date.seconds * 1000).toLocaleDateString()
-                      : "S/D"}
-                  </span>
+                  <div>
+                    <span className="order-id">🆔 ID: {order.id}</span>
+                    <span className="order-date">
+                      📆
+                      {order.date?.seconds
+                        ? new Date(
+                            order.date.seconds * 1000,
+                          ).toLocaleDateString()
+                        : "S/D"}
+                    </span>
+                  </div>
+                  <button onClick={() => handleDeleteClick(order.id)}>
+                    🧺 Eliminar
+                  </button>
                 </div>
+
                 <div className="order-buyer-details">
                   <h4>Cliente: {order.buyer?.name}</h4>
                   <p>✉️ Email: {order.buyer?.email}</p>

@@ -99,3 +99,19 @@
   background-color: #1e3a8a;
   color: #93c5fd;
 }
+
+.order-delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  float: right;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.order-date {
+  margin-left: 10px;
+}

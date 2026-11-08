@@ -168,3 +168,17 @@ export const getAllOrdersFromFirebase = async () => {
     throw error;
   }
 };
+
+/*----------------------------------------------------------------------*/
+/*                       ELIMINAR ÓRDENES DE COMPRA (ADMIN)             */
+/*----------------------------------------------------------------------*/
+export const deleteOrderFromFirebase = async (id) => {
+  try {
+    const OrderRef = doc(db, "orders", id);
+    await deleteDoc(OrderRef);
+    return true;
+  } catch (error) {
+    console.error("Error al eliminar la órsen:", error);
+    throw error;
+  }
+};
