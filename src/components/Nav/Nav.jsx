@@ -64,11 +64,7 @@ export const Nav = () => {
               </li>
 
               <li>
-                <Link
-                  to={"/"}
-                  onClick={() => setOpen(false)}
-                  
-                >
+                <Link to={"/"} onClick={() => setOpen(false)}>
                   ⬅️ Ver todos / Menú Principal
                 </Link>
               </li>

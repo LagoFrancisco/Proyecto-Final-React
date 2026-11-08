@@ -10,6 +10,7 @@ import { Dashboard } from "./components/adminComponents/Dashboard/Dashboard";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { AdminLayout } from "./layouts/AdminLayout";
 import { PublicLayout } from "./layouts/PublicLayout";
+import { OrdersAdminList } from "./components/adminComponents/Orders/OrdersAdminList";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="products/edit/:id" element={<ProductFormContainer />} />
           <Route path="products/success/:id" element={<ProductSuccess />} />
 
+          <Route path="orders" element={<OrdersAdminList />} />
           {/* Opcionales */}
           {/* <Route path="dashboard" element={<DashboardFull />} /> */}
           {/* <Route path="products" element={<ProductAdminListContainer />} /> */}

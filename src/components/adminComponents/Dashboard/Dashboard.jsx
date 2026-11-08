@@ -113,6 +113,10 @@ export const Dashboard = () => {
           <Link to="/admin/products/new" className="action-card">
             ➕ Cargar
           </Link>
+          <Link to="/admin/orders" className="action-card">
+            🥡 Ver Órdenes
+          </Link>{" "}
+          {/*Nuevo acceso */}
           {/* CORRECCIÓN: Quite los links con "#" para que no se rompan la app */}
           {/*<div className="action-card disabled">✏️ Modificar</div>
           <div className="action-card disabled">❌ Eliminar</div>*/}

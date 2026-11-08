@@ -214,3 +214,34 @@
 .bg-delete {
   background-color: #ef4444;
 }
+
+.dashboard-actions {
+  margin-bottom: 2rem;
+}
+
+.dashboard-actions h3,
+.dashboard-help h3 {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.actions-grid {
+  display: flex;
+  gap: 1rem;
+}
+
+.action-card {
+  flex: 1;
+
+  padding: 1.5rem;
+
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  transition: 0.25s;
+}

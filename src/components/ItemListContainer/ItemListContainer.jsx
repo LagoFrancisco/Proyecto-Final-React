@@ -3,7 +3,6 @@ import { ItemList } from "../ItemList/ItemList";
 import { getByCategory, getProducts } from "../../services/productsService";
 import { useParams } from "react-router-dom";
 
-
 export const ItemListContainer = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);

@@ -10,6 +10,7 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "../firebase/config";
+import { serverTimestamp } from "firebase/firestore";
 
 //Todas las funciones van a utilizar esta colección.
 //La hacemos global y que todas la usen en vez de definirla varias veces
@@ -129,6 +130,41 @@ export const updateProductInFirebase = async (id, productData) => {
     return true;
   } catch (error) {
     console.error("Error al actualizar el producto:", error);
+    throw error;
+  }
+};
+
+/*----------------------------------------------------------------------*/
+/*                  CREAR ORDEN DE COMPRA (PÚBLICO)                     */
+/*----------------------------------------------------------------------*/
+export const createOrderInFirebase = async (orderData) => {
+  try {
+    const ordersRef = collection(db, "orders");
+    const docRef = await addDoc(ordersRef, {
+      ...orderData,
+      date: serverTimestamp(), // Setea la fecha exacta del servidor
+    });
+    return docRef.id;
+  } catch (error) {
+    console.error("Error al registrar la orden:", error);
+    throw error;
+  }
+};
+
+/*----------------------------------------------------------------------*/
+/*                       TRAER TODAS LAS ÓRDENES (ADMIN)                */
+/*----------------------------------------------------------------------*/
+export const getAllOrdersFromFirebase = async () => {
+  try {
+    const ordersRef = collection(db, "orders");
+    const querySnapshot = await getDocs(ordersRef);
+    const orders = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return orders;
+  } catch (error) {
+    console.error("Error al traer las órdenes:", error);
     throw error;
   }
 };

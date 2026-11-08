@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createOrderInFirebase } from "../services/productsService";
 
 /* ------------------------------------------------------------ */
 /*                        CREAMOS CONTEXTO                      */
@@ -24,6 +25,7 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const navigate = useNavigate();
   const [cart, setCart] = useState([]);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   // Función inteligente para agregar al carrito
   const addItem = (product, quantity) => {
@@ -76,10 +78,46 @@ export const CartProvider = ({ children }) => {
   };
 
   //Checkout
-  const checkout = () => {
-    alert("Su compra ha sido realizada 🎉");
-    clearCart();
-    navigate("/");
+  const checkout = async () => {
+    if (cart.length === 0) {
+      alert("Elcarrito está vacío.");
+      return;
+    }
+
+    const name = prompt("Nombre completo:");
+    if (!name) return;
+    const email = prompt("Correo electrónico:");
+    if (!email) return;
+    const phone = prompt("Teléfono:");
+    if (!phone) return;
+
+    // Enciendo el estado de carga justo antes de viajar a Firebase
+    setIsProcessing(true);
+
+    const orderData = {
+      buyer: { name, email, phone },
+      items: cart.map((item) => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+      total: getCartTotal(),
+      status: "generada",
+    };
+
+    try {
+      // Envío la información a la base de datos
+      const orderId = await createOrderInFirebase(orderData);
+      alert(`¡Compra exitosa! Código de orden: ${orderId}`);
+      clearCart(); // Vacía el carrito localmente tras el éxito
+    } catch (error) {
+      console.error("Error al procesar en Firestore:", error);
+      alert("Error al procesar la compra.");
+    } finally {
+      // Apago el estado de carga pase lo que pase (éxito o error)
+      setIsProcessing(false);
+    }
   };
 
   const values = {
@@ -90,6 +128,7 @@ export const CartProvider = ({ children }) => {
     getCartTotal,
     getTotalItems,
     checkout,
+    isProcessing,
   };
 
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
