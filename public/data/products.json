@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "MULTIMETRO DIGITAL",
-    "description": "El Teste Multímetro digital de mano ofrece una tensión máxima tanto de corriente alterna como en corrriente continua de 600V",
+    "description": "El Tester Multímetro digital de mano ofrece una tensión máxima tanto de corriente alterna como en corrriente continua de 600V",
     "price": 45000,
     "image": "/img/electronica/Tester-Multimetro-Digital.jpeg",
     "alt": "Imagen de Tester Multimetro Digital",
@@ -33,6 +33,33 @@
     "price": 360000,
     "image": "/img/electronica/Osciloscopio-Digital.jpeg",
     "alt": "Imagen de Osciloscopio Digital",
+    "category": "osciloscopios"
+  },
+  {
+    "id": 5,
+    "name": "DECIBELIMETRO DIGITAL",
+    "description": "El Decibelímetro digital de mano ofrece una excelente medición del nivel de ruido ambiental.",
+    "price": 75000,
+    "image": "/img/electronica/Decibelímetro.png",
+    "alt": "Imagen de Decibelimetro Digital",
+    "category": "instrumentos de medición"
+  },
+  {
+    "id": 6,
+    "name": "DETECTOR DE GASES",
+    "description": "El Detector de gases de hidrocarburos esla mejor opción para el especialista en mmedición de gases. Es apto para la medición de LEL - O2 - H2S - SO2.",
+    "price": 1545000,
+    "image": "/img/electronica/Detector-de-Gases.jpg",
+    "alt": "Imagen de Detector de Gases de Hidrocarburos",
+    "category": "instrumentos de medición de gases"
+  },
+  {
+    "id": 7,
+    "name": "OSCILOSCOPIO ANALOGICO",
+    "description": "El Osciloscopio Analógico trabaja con 2 canales, frecuencia de 20 Mhz, acoplamiento: AC, DC, GND, modo de trabajo: CH1, CH2, DUAL (ALT, CHOP), ADD, sensibilidad: 5mV/div...5V/div, tensión de entrada máx. : 400V (AC+DC peak-peak), tiempo de ascenso: 17,5ns. ",
+    "price": 4500000,
+    "image": "/img/electronica/osciloscopio-analogico-20mhz.jpg",
+    "alt": "Imagen de Osciloscopio Analógico",
     "category": "osciloscopios"
   }
 ]
