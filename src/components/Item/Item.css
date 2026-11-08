@@ -22,6 +22,7 @@
   width: 100%;
   height: 18rem;
   object-fit: contain;
+  padding: 5px;
 }
 
 .card h3 {

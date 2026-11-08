@@ -1,4 +1,4 @@
-export const validateProduct = (product) => {
+export const validateProduct = (product, file) => {
   const errors = {};
 
   if (!product.name.trim()) {
@@ -17,8 +17,17 @@ export const validateProduct = (product) => {
     errors.category = "La categoria es obligatoria";
   }
 
-  if (!product.file) {
+  if (!file && !product.image) {
     errors.file = "Debes seleccionar una imagen";
   }
   return errors;
+
+  //Si tuviera el caso de que ahora el form hace alta y edit
+  //Agregamos "&& !product.image", ya que file es el archivo
+  //Seleccionado por el usuario desde el explorador de archivos
+  //product.image es la url cuando la imagen viene desde la ddbb
+
+  // if (!product.file && !product.image) {
+  // error.file = "Debes seleccionar una imagen";
+  // }
 };

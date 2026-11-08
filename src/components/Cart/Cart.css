@@ -1,7 +1,6 @@
 .cart-container {
   display: flex;
   flex-direction: column;
-
   align-items: center;
 }
 
@@ -26,4 +25,28 @@
 .cart-actions p {
   font-size: 2rem;
   padding: 1rem;
+}
+
+.cart-summary-text {
+  background-color: #334155;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: orangered;
+  font-style: italic;
+  text-align: center;
+  border: black;
+}
+
+.cart-summary-sub-text {
+  background-color: #334155;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: grey;
+  text-align: center;
+  border: #334155;
+  gap: 3rem;
 }

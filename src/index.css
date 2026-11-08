@@ -72,7 +72,7 @@ a {
 }
 
 .bg-success {
-  background: var(--success);
+  background: var(--primary-hover);
 }
 
 .bg-delete {
@@ -90,7 +90,10 @@ a {
 }
 .bg-success,
 .bg-delete {
-  color: white;
+  font-size: 1.3rem;
+  color: blue;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .bg-primary:hover {

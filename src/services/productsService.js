@@ -1,10 +1,12 @@
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
   query,
+  updateDoc,
   where,
 } from "firebase/firestore";
 import { db } from "../firebase/config";
@@ -99,6 +101,34 @@ export const createProduct = async (productData) => {
     return docRef.id; // opcional, por si quieren usar el id para algo
   } catch (error) {
     console.error("Error al crear producto:", error);
+    throw error;
+  }
+};
+
+/*------------------------------------------------------------------------*/
+/*                              ELIMINAR PRODUCTO                         */
+/*------------------------------------------------------------------------*/
+export const deleteProductsFromFirebase = async (id) => {
+  try {
+    const productRef = doc(db, "products", id);
+    await deleteDoc(productRef);
+    return true;
+  } catch (error) {
+    console.error("Error al eliminar el producto:", error);
+    throw error;
+  }
+};
+
+/*--------------------------------------------------------------------------*/
+/*                              ACTUALIZAR PRODUCTO                         */
+/*--------------------------------------------------------------------------*/
+export const updateProductInFirebase = async (id, productData) => {
+  try {
+    const productRef = doc(db, "products", id);
+    await updateDoc(productRef, productData);
+    return true;
+  } catch (error) {
+    console.error("Error al actualizar el producto:", error);
     throw error;
   }
 };
